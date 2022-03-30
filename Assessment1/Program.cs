@@ -35,8 +35,15 @@ namespace Assessment1
                 else if (option == 2)
                 {
                     Console.WriteLine("enter a file path");
-                    string file_path = Console.ReadLine();
-                    text = User_Input.fileTextInput(file_path);
+                    try
+                    {
+                        string file_path = Console.ReadLine();
+                        text = User_Input.fileTextInput(file_path);
+                    }
+                    catch(FileNotFoundException e)
+                    {
+                        Console.Writeline("File not found try again")
+                    }
                 }
             }
             catch (Exception e)
