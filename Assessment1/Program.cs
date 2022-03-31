@@ -50,14 +50,11 @@ namespace Assessment1
                 Console.WriteLine("error");
             }
 
-            //Pass the text input to the 'analyseText' method
 
-            foreach(int i in analysis.analyseText(text))// calls the analysis class in a for loop for the code to be outputted
-            {
-                Console.WriteLine(i);//writes the frequency of sentences,vowels,consonants,upper and lower case letters
-            }
-
-
+            Report report = new Report();// Object of class report
+            List<int> analysed = analysis.analyseText(text);// input is put throught the function analysetext to be ananlysed
+           
+            report.Output(analysed);//calls the output method to output the list
         }
 
 
