@@ -34,7 +34,7 @@ namespace Assessment1
         {
             List<string> textarray = new List<string>(File.ReadAllLines(fileName));//reads all lines in the file to put into a text array
 
-            text = Convert.ToString(textarray);// coverts the list of strings into one string
+            text = string.Join(",",textarray);// coverts the list of strings into one string
             return text;// returns text of the file to be analysed
         }
     }
