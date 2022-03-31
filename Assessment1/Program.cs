@@ -12,24 +12,22 @@ namespace Assessment1
         static void Main()
         {
             //Local list of integers to hold the first five measurements of the text
-            List<int> parameters = new List<int>();
-            Analysis analysis = new Analysis();
+            
+            Analysis analysis = new Analysis();// creates an object for class Analysis
 
-            //Create 'Input' object
-            Input User_Input = new Input();
-            //Get either manually entered text, or text from a file
-            string text = "";
+            Input User_Input = new Input();// create an object for class input
+            
+            string text = "";// text is the variable which will be storing the input
 
-            //Create an 'Analyse' object 
             try
             {
-                Console.WriteLine("enter an option:" + "\n 1) manual input" + "\n 2) file input");
+                Console.WriteLine("enter an option:" + "\n 1) manual input" + "\n 2) file input");//Tells the user to either get a manual input or a file input
 
-                int option = Convert.ToInt32(Console.ReadLine());
+                int option = Convert.ToInt32(Console.ReadLine());// user input
 
                 if (option == 1)
                 {
-                    text = User_Input.manualTextInput();
+                    text = User_Input.manualTextInput();// calls the class Input for the method amnual text input
                     Console.WriteLine(text);
                 }
                 else if (option == 2)
@@ -37,33 +35,27 @@ namespace Assessment1
                     Console.WriteLine("enter a file path");
                     try
                     {
-                        string file_path = Console.ReadLine();
-                        text = User_Input.fileTextInput(file_path);
+                        string file_path = Console.ReadLine();// user inputs file path for the system to find the file
+                        text = User_Input.fileTextInput(file_path);// calls the class Input for the method file text input
+                        Console.Writeline(text);
                     }
-                    catch(FileNotFoundException e)
+                    catch(FileNotFoundException e)// catches file not found errors
                     {
-                        Console.Writeline("File not found try again")
+                        Console.Writeline("File not found");// lets the user know what the error is
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception e)//catches any exception in the the users input
             {
                 Console.WriteLine("error");
             }
 
             //Pass the text input to the 'analyseText' method
 
-            foreach(int i in analysis.analyseText(text))
+            foreach(int i in analysis.analyseText(text))// calls the analysis class in a for loop for the code to be outputted
             {
-                Console.WriteLine(i);
+                Console.WriteLine(i);//writes the frequency of sentences,vowels,consonants,upper and lower case letters
             }
-            //Receive a list of integers back
-
-
-            //Report the results of the analysis
-
-
-            //TO ADD: Get the frequency of individual letters?
 
 
         }
